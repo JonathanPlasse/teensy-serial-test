@@ -6,4 +6,6 @@ from binserial import BinSerial
 if __name__ == "__main__":
     bser = BinSerial("/dev/ttyACM0", 9600)
     while True:
-        bser.write(['uint32'], [int(input('time: '))])
+        # bser.write(['uint32'], [int(input('time: '))])
+        bser.write(['int16'], [int(input('pwm: '))])
+        print(bser.read(['int32']*2))
